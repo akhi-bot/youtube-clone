@@ -28,7 +28,10 @@ const VideoHorizontal = ({ video, searchScreen, subScreen }) => {
 
   const isVideo = !(id.kind === "youtube#channel"||subScreen );
   const seconds = moment.duration(duration).asSeconds();
-  const _duration = moment.utc(seconds * 1000).format("mm: ss");
+  let _duration = moment.utc(seconds * 1000).format("HH:mm: ss");
+  if(_duration.slice(0,2) === '00') {
+    _duration = _duration.slice(-6)
+  }
   const _channelId = resourceId?.channelId|| channelId;
 
   useEffect(() => {
