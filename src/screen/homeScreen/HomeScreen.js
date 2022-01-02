@@ -7,6 +7,7 @@ import {
   getPopularVideos,
   getVideosByCategory,
 } from "../../redux/actions/videos.action";
+import './_homeScreen.scss'
 import InfiniteScroll from "react-infinite-scroll-component";
 import SkeletonVideo from "../../components/skeleton/SkeletonVideo";
 import 'react-loading-skeleton/dist/skeleton.css'
@@ -41,7 +42,7 @@ const HomeScreen = () => {
         loader={
           <div className="spinner-border text-danger d-block mx-auto"></div>
         }
-        className="row"
+        className="row w-100"
       >
         {!loading ? (
           videos.map((video, i) => (

@@ -5,6 +5,7 @@ import { FaBars } from "react-icons/fa";
 import { AiOutlineSearch } from "react-icons/ai";
 import { MdNotifications, MdApps } from "react-icons/md";
 import { useHistory } from "react-router";
+import { useSelector } from "react-redux";
 
 const Header = ({handlerToggleSidebar}) => {
   const [input, setInput] = useState('')
@@ -15,6 +16,7 @@ const Header = ({handlerToggleSidebar}) => {
 
       history.push(`/search/${input}`)
   }
+  const photoUrl = useSelector(state => state.auth?.user?.photoUrl)
   return (
     <div className="border border-dark header">
       <FaBars className="header__menu" size={26} onClick= {() => (handlerToggleSidebar())} />
@@ -36,7 +38,7 @@ const Header = ({handlerToggleSidebar}) => {
         <MdNotifications size={28} />
         <MdApps size={28} />
         <img
-          src="https://teacherchallenge.edublogs.org/files/2016/11/cartoonify-vqwpfj.png"
+          src={photoUrl}
           alt="avatar"
         />
       </div>

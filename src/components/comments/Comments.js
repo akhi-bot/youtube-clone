@@ -27,13 +27,15 @@ const Comments = ({ videoId, totalComments }) => {
     dispatch(addComment(videoId,text));
     setText('')
   };
+
+  const photoUrl = useSelector(state => state.auth?.user?.photoUrl)
   return (
     <div className="comments">
       <p>{totalComments} Comments</p>
       <div className="comments__form d-flex w-100 my-2">
         <img
-          src="https://teacherchallenge.edublogs.org/files/2016/11/cartoonify-vqwpfj.png"
-          alt=""
+          src={photoUrl}
+          alt="author"
           className="rounded-circle me-3"
         />
         <form onSubmit={handleComment} className="d-flex flex-grow-1">

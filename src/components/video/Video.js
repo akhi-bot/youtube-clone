@@ -15,7 +15,7 @@ const Video = ({ video, channelScreen }) => {
   const seconds = moment.duration(duration).asSeconds();
   let _duration = moment.utc(seconds * 1000).format("HH:mm: ss");
   if(_duration.slice(0,2) === '00') {
-    _duration = _duration.slice(3)
+    _duration = _duration.slice(-6)
   }
   const {
     id,

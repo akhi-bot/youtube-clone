@@ -18,7 +18,7 @@ const Comment = ({comment}) => {
           <p className="comment__header mb-1">
               {authorDisplayName } • {moment(publishedAt).fromNow()}
           </p>
-          <p className='mb-0'>{textDisplay}</p>
+          <p className=' comment__text mb-0'>{textDisplay}</p>
       </div>
     </div>
   );

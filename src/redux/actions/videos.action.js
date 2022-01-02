@@ -74,7 +74,6 @@ export const getVideosByCategory = (keyword) => async (dispatch, getState) => {
       },
     });
   } catch (error) {
-    console.log(error.message);
     dispatch({ type: HOME_VIDEOS_FAIL, payload: error.message });
   }
 };

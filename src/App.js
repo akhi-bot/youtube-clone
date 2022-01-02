@@ -14,7 +14,6 @@ import ChannelScreen from "./screen/channelScreen/ChannelScreen";
 
 const Layout = ({ children }) => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
-
   const handlerToggleSidebar = () => setToggleSidebar((value) => !value);
 
   return (
@@ -36,22 +35,20 @@ const Layout = ({ children }) => {
 const App = () => {
   const { accessToken, loading } = useSelector((state) => state.auth);
   const history = useHistory();
-
   useEffect(() => {
+  
     if (!loading && !accessToken) {
       history.push("/auth");
     }
-  }, [accessToken, loading, history]);
-
-
+  }, [loading, accessToken, history]);
   return (
     <Switch>
-      <Route path="/" exact>
+        <Route path="/" exact>
         <Layout>
           <HomeScreen />
         </Layout>
       </Route>
-
+      
       <Route path="/auth">
         <LoginScreen />
       </Route>
@@ -74,7 +71,7 @@ const App = () => {
       </Route>
       <Route path="/channel/:channelId">
         <Layout>
-         <ChannelScreen/>
+          <ChannelScreen />
         </Layout>
       </Route>
 

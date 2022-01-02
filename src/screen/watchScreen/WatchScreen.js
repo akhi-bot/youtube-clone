@@ -12,6 +12,7 @@ import {
 } from "../../redux/actions/videos.action";
 import Skeleton,{ SkeletonTheme} from "react-loading-skeleton";
 
+
 const WatchScreen = () => {
   const { id } = useParams();
 
